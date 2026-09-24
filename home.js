@@ -321,3 +321,12 @@ board.addEventListener("dragend", () => {
   dragCard = null;
   board.querySelectorAll(".dragging, .over").forEach((x) => x.classList.remove("dragging", "over"));
 });
+
+// ---------- Outline glint follows the cursor inside a card ----------
+document.addEventListener("pointermove", (e) => {
+  const p = e.target.closest && e.target.closest(".panel");
+  if (!p) return;
+  const r = p.getBoundingClientRect();
+  p.style.setProperty("--mx", e.clientX - r.left + "px");
+  p.style.setProperty("--my", e.clientY - r.top + "px");
+});
