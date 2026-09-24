@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/77fcaf96e2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    
+  </head>
+  <body>
+    <a href="myPage.html" style="position:fixed;top:10px;right:14px;z-index:2000;font-family:sans-serif;color:#fff;background:rgba(0,0,0,.5);padding:6px 10px;border-radius:6px;text-decoration:none;">New view &rarr;</a>
+    <section id="header">
+      <h id="greeting"></h>
+      <h id="time"></h>
+      <div class="clock">
+        <div id = "outline" class="locked">
+          <div id="clock_border">
+            <div id="hour"></div>
+            <span>:</span>
+            <div id="minute"></div>
+            <span>:</span>
+            <div id="second"></div>
+          </div>
+        </div>
+        
+          
+      </div>
+      
+    </section>
+    <section id="content">
+
+      <section id = left>
+        <div id = "calculate" class="locked">
+          <div id="border">
+            <h id = "daysLeft"></h>
+            <h id = "daysLeft2"></h>
+            <div id = input_wrap>
+              <input type="date" id="myDate">
+              <button id="dateSubmit"  ><b>SUBMIT</b></button>
+            </div>
+          </div>
+        </div>
+
+        <div id="timer" class="locked">
+          <div id="pomodoro_buttons">
+              <button id="start">Start</button>
+              <button id="pause">Pause</button>
+              <button id="reset">Reset</button>
+          </div>
+          <section id="pomodoro">
+              <div id="pomodoro_timer">
+                  <h2>Timer</h2>
+                  <div id="time_display">
+                      <span id="minutes_display" contenteditable="true">20</span>
+                      <span>:</span>
+                      <span id="seconds_display" contenteditable="true">00</span>
+                  </div>
+              </div>
+          </section>
+      </div>
+      
+        
+        
+        
+        
+        
+      </section>
+
+
+      <section id="mid">
+        <section id="calendar_section" class="locked">
+          <div class="calendar_wrapper">
+            <header>
+              <p class="current-date">August</p>
+              <div class="icons">
+                <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                <span id="next" class="material-symbols-rounded">chevron_right</span>
+              </div>
+            </header>
+            <div class="calendar">
+              <ul class="weeks">
+                <li>Sun</li>
+                <li>Mon</li>
+                <li>Tue</li>
+                <li>Wed</li>
+                <li>Thu</li>
+                <li>Fri</li>
+                <li>Sat</li>
+              </ul>
+              <ul class="days">
+                <li>28</li>
+                <li>29</li>
+                <li>30</li>
+                <li>31</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li>11</li>
+                <li>12</li>
+                <li>13</li>
+                <li>14</li>
+                <li>15</li>
+                <li>16</li>
+                <li>17</li>
+                <li>18</li>
+                <li>19</li>
+                <li>20</li>
+                <li>21</li>
+                <li>22</li>
+                <li>23</li>
+                <li>24</li>
+                <li>25</li>
+                <li>26</li>
+                <li>27</li>
+                <li>28</li>
+                <li>29</li>
+                <li>30</li>
+                <li>31</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section id="search" class="locked">
+          <div class="search_container">
+            <form
+              action="https://www.google.com/search"
+              method="get"
+              class="search_bar"
+            >
+              <input
+                type="text"
+                placeholder="Search Anything..."
+                name="q"
+                autocomplete="off"
+              />
+              <button type="submit"><img src="images/search.png" alt="Search"/></button>
+            </form>
+          </div>
+        </section>
+      </section>
+
+      <section id = "right">
+        <section id = "notepad" class="locked">
+          <div id = toprow>
+            <h>Notes</h>
+            <div id = "buttons">
+              <p><button id="save" role="button" onclick="save()">Save</button></p>
+              <p><button id="clear" role="button" onclick="clear()"><b>Clear</b></button></p>
+            </div>
+            
+            
+          </div>
+          
+          <div id = "note_wrapper">
+            <textarea id = "area" placeholder="Write Anything..."></textarea>
+          </div>
+          
+          
+        </section>
+
+
+      </section>
+    </section>
+
+    <footer id="footer">
+      
+      <section id="quicklinks">
+        <span>
+          <div id="row">
+
+            <li id="link_container">
+              <a href="https://aniwatch.to/">
+                <span>
+                  <img src="images/anime.png" alt="ani icon" />
+                </span>
+              </a>
+            </li>
+
+            <li id="link_container">
+              <a href="https://www.youtube.com/">
+                <span>
+                  <img src="images/youtube.png" alt="yt icon" />
+                </span>
+              </a>
+            </li>
+
+            <li id="link_container">
+              <a href="https://www.netflix.com/browse">
+                <span>
+                  <img src="images/netflix.png" alt="ntflx icon" />
+                </span>
+              </a>
+            </li>
+
+            <li id="link_container">
+              <a href="https://www.amazon.com/">
+                <span>
+                  <img src="images/amazon.png" alt="amzn icon" />
+                </span>
+              </a>
+            </li>
+
+            <li id="link_container">
+              <a href="https://mail.google.com/mail/u/0/#inbox">
+                <span>
+                  <img src="images/gmail.png" alt="mail icon" />
+                </span>
+              </a>
+            </li>
+
+            <li id="link_container">
+              <a href="https://my.ucf.edu/?shib_logout=done">
+                <span>
+                  <img src="images/ucf.png" alt="myUCF icon" />
+                </span>
+              </a>
+            </li>
+
+            <li id="link_container">
+              <a href="https://webcourses.ucf.edu/">
+                <span>
+                  <img src="images/canvas.png" alt="canvas icon" />
+                </span>
+              </a>
+            </li>
+
+            <li id="link_container">
+              <a href="https://www.microsoft365.com/?auth=2">
+                <span>
+                  <img src="images/microsoft.png" alt="microsoft icon" />
+                </span>
+              </a>
+            </li>
+
+            <li id="link_container">
+              <a href="https://github.com/">
+                <span>
+                  <img src="images/github.png" alt="github icon" />
+                </span>
+              </a>
+            </li>
+
+            <li id="link_container">
+              <span>
+                <a href="https://docs.google.com/document/u/0/">
+                  <img src="images/docs.png" alt="docs icon" />
+                </a>
+              </span>
+            </li>
+          </div>
+        </span>
+      </section>
+
+      
+
+      <input id="inpLock" type="checkbox" checked>
+      <label class="btn-lock" for="inpLock">
+        <svg width="36" height="40" viewBox="0 0 36 40">
+          <path class="lockb" d="M25 27C25 32.5228 20.5228 37 14 37C7.4772 37 3 32.5228 3 27C3 21.4772 7.4772 17 14 17C20.5228 17 25 21.4772 25 27Z"></path>
+          <path class="lock" d="M8 22V13C8 9.68629 10.6863 7 14 7V7C17.3137 7 20 9.68629 20 13V22"></path>
+      </svg>
+      </label>
+    </footer>
+    
+    <script src="script.js">
+
+    </script>
+  </body>
+</html>

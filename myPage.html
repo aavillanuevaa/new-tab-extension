@@ -1,291 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home</title>
+    <title>New Tab</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/77fcaf96e2.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="home.css" />
   </head>
   <body>
-    <section id="header">
-      <h id="greeting"></h>
-      <h id="time"></h>
-      <div class="clock">
-        <div id = "outline" class="locked">
-          <div id="clock_border">
-            <div id="hour"></div>
-            <span>:</span>
-            <div id="minute"></div>
-            <span>:</span>
-            <div id="second"></div>
-          </div>
-        </div>
-        
-          
+    <header id="topbar" class="panel">
+      <div>
+        <h1 id="greeting">Good Day</h1>
+        <p id="subtitle"></p>
       </div>
-      
-    </section>
-    <section id="content">
-
-      <section id = left>
-        <div id = "calculate" class="locked">
-          <div id="border">
-            <h id = "daysLeft"></h>
-            <h id = "daysLeft2"></h>
-            <div id = input_wrap>
-              <input type="date" id="myDate">
-              <button id="dateSubmit"  ><b>SUBMIT</b></button>
+      <div id="clock">00:00:00</div>
+      <div id="settings">
+        <button id="settingsBtn" class="mc-btn" aria-haspopup="true" aria-expanded="false" title="Settings" aria-label="Settings"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
+        <div id="settingsMenu" hidden>
+          <div class="set-row">
+            <label for="nameInput">Your name</label>
+            <input id="nameInput" type="text" maxlength="30" placeholder="Name" />
+          </div>
+          <div class="set-row">
+            <label for="folderSelect">Bookmark folder</label>
+            <select id="folderSelect" class="mc-btn"></select>
+          </div>
+          <div class="set-row">
+            <label>Background</label>
+            <div class="set-actions">
+              <button id="bgChange" class="mc-btn">Change</button>
+              <button id="bgReset" class="mc-btn" hidden>Reset</button>
             </div>
+            <input id="bgFile" type="file" accept="image/*" hidden />
+          </div>
+          <div class="set-row">
+            <label for="icalInput">Google Calendar secret iCal link</label>
+            <input id="icalInput" type="text" placeholder="https://calendar.google.com/calendar/ical/.../basic.ics" />
+            <small>Calendar settings &rarr; Integrate calendar &rarr; "Secret address in iCal format". Keep it private.</small>
+          </div>
+          <small class="set-note">Canvas uses your logged-in webcourses.ucf.edu session.</small>
+          <a id="classicLink" class="set-link" href="classic.html">Open classic view &rarr;</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="board">
+      <section id="bookmarks" class="panel">
+        <div class="panel-head">
+          <h2>Favorites</h2>
+          <div class="head-tools">
+            <button id="editToggle" class="mc-btn">Edit</button>
           </div>
         </div>
+        <p id="editHint" hidden>Drag blocks to rearrange. Order is saved automatically.</p>
+        <div id="grid"></div>
+        <p id="empty" hidden>No bookmarks in this folder yet. Add one in Chrome and it will appear here.</p>
+      </section>
 
-        <div id="timer" class="locked">
-          <div id="pomodoro_buttons">
-              <button id="start">Start</button>
-              <button id="pause">Pause</button>
-              <button id="reset">Reset</button>
-          </div>
-          <section id="pomodoro">
-              <div id="pomodoro_timer">
-                  <h2>Timer</h2>
-                  <div id="time_display">
-                      <span id="minutes_display" contenteditable="true">20</span>
-                      <span>:</span>
-                      <span id="seconds_display" contenteditable="true">00</span>
-                  </div>
-              </div>
+          <section id="events" class="panel">
+            <div class="panel-head">
+              <h2>Upcoming events</h2>
+              <a class="mini-link" href="https://calendar.google.com/" target="_blank" rel="noopener">Open</a>
+            </div>
+            <div id="eventsBody" class="list"></div>
           </section>
-      </div>
-      
-        
-        
-        
-        
-        
-      </section>
-
-
-      <section id="mid">
-        <section id="calendar_section" class="locked">
-          <div class="calendar_wrapper">
-            <header>
-              <p class="current-date">August</p>
-              <div class="icons">
-                <span id="prev" class="material-symbols-rounded">chevron_left</span>
-                <span id="next" class="material-symbols-rounded">chevron_right</span>
-              </div>
-            </header>
-            <div class="calendar">
-              <ul class="weeks">
-                <li>Sun</li>
-                <li>Mon</li>
-                <li>Tue</li>
-                <li>Wed</li>
-                <li>Thu</li>
-                <li>Fri</li>
-                <li>Sat</li>
-              </ul>
-              <ul class="days">
-                <li>28</li>
-                <li>29</li>
-                <li>30</li>
-                <li>31</li>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>
-                <li>8</li>
-                <li>9</li>
-                <li>10</li>
-                <li>11</li>
-                <li>12</li>
-                <li>13</li>
-                <li>14</li>
-                <li>15</li>
-                <li>16</li>
-                <li>17</li>
-                <li>18</li>
-                <li>19</li>
-                <li>20</li>
-                <li>21</li>
-                <li>22</li>
-                <li>23</li>
-                <li>24</li>
-                <li>25</li>
-                <li>26</li>
-                <li>27</li>
-                <li>28</li>
-                <li>29</li>
-                <li>30</li>
-                <li>31</li>
-              </ul>
+          <section id="canvas" class="panel">
+            <div class="panel-head">
+              <h2>Canvas to-do</h2>
+              <a class="mini-link" href="https://webcourses.ucf.edu/" target="_blank" rel="noopener">Open</a>
             </div>
+            <div id="canvasBody" class="list"></div>
+          </section>
+
+      <section id="notepad" class="panel">
+        <div class="panel-head">
+          <h2>Notes</h2>
+          <div class="head-tools">
+            <span id="saveState"></span>
+            <button id="save" class="mc-btn">Save</button>
+            <button id="clear" class="mc-btn danger">Clear</button>
           </div>
-        </section>
-        <section id="search" class="locked">
-          <div class="search_container">
-            <form
-              action="https://www.google.com/search"
-              method="get"
-              class="search_bar"
-            >
-              <input
-                type="text"
-                placeholder="Search Anything..."
-                name="q"
-                autocomplete="off"
-              />
-              <button type="submit"><img src="images/search.png" alt="Search"/></button>
-            </form>
-          </div>
-        </section>
+        </div>
+        <textarea id="area" placeholder="Write anything..."></textarea>
       </section>
+    </main>
 
-      <section id = "right">
-        <section id = "notepad" class="locked">
-          <div id = toprow>
-            <h>Notes</h>
-            <div id = "buttons">
-              <p><button id="save" role="button" onclick="save()">Save</button></p>
-              <p><button id="clear" role="button" onclick="clear()"><b>Clear</b></button></p>
-            </div>
-            
-            
-          </div>
-          
-          <div id = "note_wrapper">
-            <textarea id = "area" placeholder="Write Anything..."></textarea>
-          </div>
-          
-          
-        </section>
-
-
-      </section>
-    </section>
-
-    <footer id="footer">
-      
-      <section id="quicklinks">
-        <span>
-          <div id="row">
-
-            <li id="link_container">
-              <a href="https://aniwatch.to/">
-                <span>
-                  <img src="images/anime.png" alt="ani icon" />
-                </span>
-              </a>
-            </li>
-
-            <li id="link_container">
-              <a href="https://www.youtube.com/">
-                <span>
-                  <img src="images/youtube.png" alt="yt icon" />
-                </span>
-              </a>
-            </li>
-
-            <li id="link_container">
-              <a href="https://www.netflix.com/browse">
-                <span>
-                  <img src="images/netflix.png" alt="ntflx icon" />
-                </span>
-              </a>
-            </li>
-
-            <li id="link_container">
-              <a href="https://www.amazon.com/">
-                <span>
-                  <img src="images/amazon.png" alt="amzn icon" />
-                </span>
-              </a>
-            </li>
-
-            <li id="link_container">
-              <a href="https://mail.google.com/mail/u/0/#inbox">
-                <span>
-                  <img src="images/gmail.png" alt="mail icon" />
-                </span>
-              </a>
-            </li>
-
-            <li id="link_container">
-              <a href="https://my.ucf.edu/?shib_logout=done">
-                <span>
-                  <img src="images/ucf.png" alt="myUCF icon" />
-                </span>
-              </a>
-            </li>
-
-            <li id="link_container">
-              <a href="https://webcourses.ucf.edu/">
-                <span>
-                  <img src="images/canvas.png" alt="canvas icon" />
-                </span>
-              </a>
-            </li>
-
-            <li id="link_container">
-              <a href="https://www.microsoft365.com/?auth=2">
-                <span>
-                  <img src="images/microsoft.png" alt="microsoft icon" />
-                </span>
-              </a>
-            </li>
-
-            <li id="link_container">
-              <a href="https://github.com/">
-                <span>
-                  <img src="images/github.png" alt="github icon" />
-                </span>
-              </a>
-            </li>
-
-            <li id="link_container">
-              <span>
-                <a href="https://docs.google.com/document/u/0/">
-                  <img src="images/docs.png" alt="docs icon" />
-                </a>
-              </span>
-            </li>
-          </div>
-        </span>
-      </section>
-
-      
-
-      <input id="inpLock" type="checkbox" checked>
-      <label class="btn-lock" for="inpLock">
-        <svg width="36" height="40" viewBox="0 0 36 40">
-          <path class="lockb" d="M25 27C25 32.5228 20.5228 37 14 37C7.4772 37 3 32.5228 3 27C3 21.4772 7.4772 17 14 17C20.5228 17 25 21.4772 25 27Z"></path>
-          <path class="lock" d="M8 22V13C8 9.68629 10.6863 7 14 7V7C17.3137 7 20 9.68629 20 13V22"></path>
-      </svg>
-      </label>
-    </footer>
-    
-    <script src="script.js">
-
-    </script>
+    <script src="home.js"></script>
+    <script src="widgets.js"></script>
   </body>
 </html>

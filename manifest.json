@@ -2,9 +2,10 @@
     "manifest_version": 3,
     "name": "NewTabOverride",
     "description": "Personalize new tab",
-    "version": "1.0",
+    "version": "2.0",
+    "permissions": ["bookmarks", "favicon"],
+    "host_permissions": ["https://webcourses.ucf.edu/*", "https://calendar.google.com/*"],
     "chrome_url_overrides" : {
       "newtab" : "myPage.html"
     }
-    
-  }
+}
